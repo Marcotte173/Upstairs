@@ -20,7 +20,7 @@ public class Owner
     public Owner()
     {
         name = Return.Name();
-        gold = 2000;
+        gold = 20000;
         prestige = 10;
         actions = 3;
         roster.Add(new Gladiator());

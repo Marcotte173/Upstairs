@@ -16,6 +16,8 @@ public class Gladiator
     public Body legs;
     public bool dead;
     public int wins;
+    public int kills;
+    public int losses;
     public Traits trait1;
     public Traits trait2;
     public Actions action;
@@ -236,6 +238,28 @@ public class Gladiator
             else Write.Line(0, 24, flavor3);
         }        
     }
+
+    public void Death()
+    {        
+        if (Owner.player)
+        {
+            Graveyard.dayOfDeath.Add(Hub.day);
+            Graveyard.graveyard.Add(this);
+            Graveyard.killedBy.Add(this);
+        }
+        Owner.roster.Remove(this);
+    }
+    public void Death(Gladiator g)
+    {        
+        if (Owner.player)
+        {
+            Graveyard.dayOfDeath.Add(Hub.day);
+            Graveyard.killedBy.Add(g);
+            Graveyard.graveyard.Add(this);
+        }
+        Owner.roster.Remove(this);
+    }
+
 
     public Owner Owner
     {

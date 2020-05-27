@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "deo8j1hTjj0Ys019oQ4wIC2tkjZiz5DF343dJwHGgf61mNLt8Nh1zvqjKDYCgSAJYl0efycCauPDiRnz6YOiIQ==",
+  "dgSpecHash": "tprjBXuXf3qnZy5/iOGOOQ84Fi1hOPU+hEnt3QRMvsqakJH1295biLQKEfsiJ1p2KM4suEHphI4ya6tW4tXJaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marcotte\\Desktop\\M2-master\\Marburgh2_0.01\\Marburgh2_0.01\\Gladiator Manager.csproj",
+  "projectFilePath": "C:\\Gladiator Manager\\Marburgh2_0.01\\Marburgh2_0.01\\Gladiator Manager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcotte\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
     "C:\\Users\\Marcotte\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",

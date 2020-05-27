@@ -30,9 +30,12 @@ public class Hub
             Write.Line("[2] " + Color.ENERGY + "Manage Gladiators" + Color.RESET);
             Write.Line("[3] " + Color.ITEM + "Purchase Equipment" + Color.RESET);
             Write.Line("[4] " + Color.ENERGY + "Jobs" + Color.RESET);
-            Write.Line("[5] " + Color.ENERGY + "Shady Jobs" + Color.RESET);
-            if (Graveyard.graveyard.Count > 0) Write.Line("[6] " + Color.DURABILITY + "Graveyard" + Color.RESET);
+            if (Graveyard.graveyard.Count > 0) Write.Line("[5] " + Color.DURABILITY + "Graveyard" + Color.RESET);
             else Write.Line("[X] " + Color.MITIGATION + "The graveyard is empty" + Color.RESET);
+            int gladiatorsWithAWIn = 0;
+            foreach (Owner o in Create.owners) foreach (Gladiator g in o.roster) if (g.wins > 0) gladiatorsWithAWIn++;
+            if(gladiatorsWithAWIn >9)Write.Line("[6] " + Color.XP + "Top 10 Gladiators" + Color.RESET);
+            else Write.Line("[X] " + Color.MITIGATION + "Not enough gladiators have won a match" + Color.RESET);
             Write.Line("[7] " + Color.XP + "Owner Rankings" + Color.RESET);
             if (audience) Write.Line("[8] " + Color.XP + "Audience with the emperor" + Color.RESET);
             else Write.Line("[X] " + Color.MITIGATION + "The emperor has no interest in you" + Color.RESET);
@@ -44,8 +47,15 @@ public class Hub
             if (choice == "1") Slaver.Hire();
             else if (choice == "2") Manage.Gladiators();
             else if (choice == "3") Purchase.Equipment();
-            else if (choice == "6" && Graveyard.graveyard.Count > 0) Graveyard.Visit();
-            else if (choice == "7") 
+            else if (choice == "5" && Graveyard.graveyard.Count > 0) Graveyard.Visit();
+            else if (choice == "6" && gladiatorsWithAWIn > 9) Rankings.Gladiators();
+            else if (choice == "7") Rankings.Owner();
+            else if (choice == "k")
+            {
+                player.roster[0].head.equipment.hp -= 1;
+                player.roster[0].torso.equipment.hp -= 1;
+                player.roster[0].legs.equipment.hp -= 1;
+            }
             else if (choice == "a")
             {
                 fightsToday = false;
@@ -58,8 +68,12 @@ public class Hub
                 if (day % 3 == 0) Slaver.NewStock();
                 fightsToday = true;
             }
+            else if (choice == "q") Environment.Exit(0);
             Menu();
         }
-        // Torunament
+        Console.Clear();
+        Write.Line("YOU ARE IN THE NEXT STAGE OF THE GAME! CONGRATS!");
+        Write.KeyPress();
+        Environment.Exit(0);
     }
 }

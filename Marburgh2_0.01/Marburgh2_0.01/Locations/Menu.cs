@@ -12,7 +12,7 @@ public class Menu
         Write.Line(0, Console.WindowHeight - 4, "[1] New Game");
         Write.Line(0, Console.WindowHeight - 3, "[2] Load Game");
         Write.Line(0, Console.WindowHeight - 2, "[?] How to play");
-        Write.Line(100, Console.WindowHeight - 2, "Version 0.2");
+        Write.Line(100, Console.WindowHeight - 2, "Version 0.35");
         string choice = Return.Option();
         Console.Clear();
         if (choice == "1")

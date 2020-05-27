@@ -14,19 +14,7 @@ public class Slaver
         {
             list.Add(new Gladiator(Return.RandomInt(-1,9)));
         }
-        Gladiator temp;
-        for (int j = 0; j <= list.Count - 2; j++)
-        {
-            for (int i = 0; i <= list.Count - 2; i++)
-            {
-                if (list[i].Price < list[i + 1].Price)
-                {
-                    temp = list[i + 1];
-                    list[i + 1] = list[i];
-                    list[i] = temp;
-                }
-            }
-        }
+        Return.SortByPrice(list);
     }
     public static void Hire()
     {

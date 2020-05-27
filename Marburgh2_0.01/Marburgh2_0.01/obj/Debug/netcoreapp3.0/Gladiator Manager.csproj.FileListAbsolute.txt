@@ -22,3 +22,16 @@ C:\Users\travi\OneDrive\Desktop\Upstairs-master\Marburgh2_0.01\Marburgh2_0.01\bi
 C:\Users\travi\OneDrive\Desktop\Upstairs-master\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.runtimeconfig.dev.json
 C:\Users\travi\OneDrive\Desktop\Upstairs-master\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.dll
 C:\Users\travi\OneDrive\Desktop\Upstairs-master\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.pdb
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\obj\Debug\netcoreapp3.0\Gladiator Manager.csprojAssemblyReference.cache
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\obj\Debug\netcoreapp3.0\Gladiator Manager.csproj.CoreCompileInputs.cache
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\obj\Debug\netcoreapp3.0\Gladiator Manager.AssemblyInfoInputs.cache
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\obj\Debug\netcoreapp3.0\Gladiator Manager.AssemblyInfo.cs
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\obj\Debug\netcoreapp3.0\Gladiator Manager.dll
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\obj\Debug\netcoreapp3.0\Gladiator Manager.pdb
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.exe
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.deps.json
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.runtimeconfig.json
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.runtimeconfig.dev.json
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.dll
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\bin\Debug\netcoreapp3.0\Gladiator Manager.pdb
+C:\Gladiator Manager\Marburgh2_0.01\Marburgh2_0.01\obj\Debug\netcoreapp3.0\Gladiator Manager.genruntimeconfig.cache

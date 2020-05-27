@@ -30,7 +30,7 @@ public class Return
 
     internal static void Managers()
     {
-        int n = 18;
+        int n = 19;
         int x = 60;        
         if (Create.player.equipmentManager)
         {
@@ -72,7 +72,124 @@ public class Return
             Write.Line(x, n, Color.GOLD + Manage.managerNames[7] + Color.RESET + " the" + Color.GOLD + " fiscal planner" + Color.RESET);
             n++;
         }
-        if (n == 18) Write.Line(x, n, "No Managers");
+        if (n == 19) Write.Line(60, 17, "No Managers");
+        else Write.Line(60, 17, "Managers");
+    }
+
+    public static void SortByPrice(List<Gladiator> list)
+    {
+        Gladiator temp;
+        for (int j = 0; j <= list.Count - 2; j++)
+        {
+            for (int i = 0; i <= list.Count - 2; i++)
+            {
+                if (list[i].Price < list[i + 1].Price)
+                {
+                    temp = list[i + 1];
+                    list[i + 1] = list[i];
+                    list[i] = temp;
+                }
+            }
+        }
+    }
+    public static void SortByWins(List<Gladiator> list)
+    {
+        Gladiator temp;
+        for (int j = 0; j <= list.Count - 2; j++)
+        {
+            for (int i = 0; i <= list.Count - 2; i++)
+            {
+                if (list[i].wins < list[i + 1].wins)
+                {
+                    temp = list[i + 1];
+                    list[i + 1] = list[i];
+                    list[i] = temp;
+                }
+            }
+        }
+    }
+    public static void SortByKills(List<Gladiator> list)
+    {
+        Gladiator temp;
+        for (int j = 0; j <= list.Count - 2; j++)
+        {
+            for (int i = 0; i <= list.Count - 2; i++)
+            {
+                if (list[i].kills < list[i + 1].kills)
+                {
+                    temp = list[i + 1];
+                    list[i + 1] = list[i];
+                    list[i] = temp;
+                }
+            }
+        }
+    }
+
+    public static void SortByLosses(List<Gladiator> list)
+    {
+        Gladiator temp;
+        for (int j = 0; j <= list.Count - 2; j++)
+        {
+            for (int i = 0; i <= list.Count - 2; i++)
+            {
+                if (list[i].losses < list[i + 1].losses)
+                {
+                    temp = list[i + 1];
+                    list[i + 1] = list[i];
+                    list[i] = temp;
+                }
+            }
+        }
+    }
+
+    public static void SortByPrestige(List<Owner> list)
+    {
+        Owner temp;
+        for (int j = 0; j <= list.Count - 2; j++)
+        {
+            for (int i = 0; i <= list.Count - 2; i++)
+            {
+                if (list[i].prestige < list[i + 1].prestige)
+                {
+                    temp = list[i + 1];
+                    list[i + 1] = list[i];
+                    list[i] = temp;
+                }
+            }
+        }
+    }
+
+    public static void SortByWealth(List<Owner> list)
+    {
+        Owner temp;
+        for (int j = 0; j <= list.Count - 2; j++)
+        {
+            for (int i = 0; i <= list.Count - 2; i++)
+            {
+                if (list[i].gold < list[i + 1].gold)
+                {
+                    temp = list[i + 1];
+                    list[i + 1] = list[i];
+                    list[i] = temp;
+                }
+            }
+        }
+    }
+    public static void SortByRosterSize(List<Owner> list)
+    {
+        Owner temp;
+        for (int j = 0; j <= list.Count - 2; j++)
+        {
+            for (int i = 0; i <= list.Count - 2; i++)
+            {
+                if (list[i].roster.Count < list[i + 1].roster.Count)
+                {
+                    temp = list[i + 1];
+                    list[i + 1] = list[i];
+                    list[i] = temp;
+                }
+            }
+        }
     }
 
     internal static bool Confirm()
@@ -161,7 +278,7 @@ public class Return
         Write.Line(20, 15,$"{g.legs.equipment.name}");
         Write.Line(20, 17,$"{g.rightArm.equipment.name}");
         Write.Line(20, 18,$"{g.leftArm.equipment.name} ");
-        if (g.head.equipment.hp >0)Write.Line(35, 13,  Color.DURABILITY + g.head.equipment.hp + " HP");
+        if (g.head.equipment.hp >0)Write.Line(35, 13,  Color.DURABILITY +  g.head.equipment.hp + " HP");
         if (g.torso.equipment.hp >0)Write.Line(35, 14,  Color.DURABILITY + g.torso.equipment.hp + " HP");
         if (g.legs.equipment.hp > 0) Write.Line(35, 15,  Color.DURABILITY + g.legs.equipment.hp + " HP");
         if (g.rightArm.equipment.effect1 >0)Write.Line(35, 17, Color.DAMAGE+ g.rightArm.equipment.effect1  + " DAM");

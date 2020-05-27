@@ -40,10 +40,10 @@ public class Equipment
     public string CheckStatus()
     {
         if (name == "None") return "";
-        else if (hp == maxHp) return " - " + Color.HEALTH + "Undamaged" + Color.RESET;
-        else if (hp < maxHp && hp > 2) return " - " + Color.NPC + "Damaged" + Color.RESET;
-        else if (hp > 0) return " - " + Color.GOLD + "Severely Damaged" + Color.RESET;
-        else return " - " + Color.STRENGTH + "Destroyed" + Color.RESET;
+        else if (hp == maxHp) return  Color.HEALTH + " Undamaged" + Color.RESET;
+        else if (hp < maxHp && hp > 2) return Color.NPC + " Damaged" + Color.RESET;
+        else if (hp > 0) return Color.GOLD + " Severely Damaged" + Color.RESET;
+        else return " - " + Color.STRENGTH + " Destroyed" + Color.RESET;
     }
     public int Defence(Gladiator g)
     {
