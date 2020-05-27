@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 public enum Traits {None, MissingArm, MissingLeg, Afraid, Fearless, }
-public enum Actions { None , Resting, Repairing, Working  }
+public enum Actions { None , Resting, Repairing, Working, Strength, Offence, Defence, Endurance  }
 public class Gladiator
 {    
     public string name;
@@ -291,11 +291,18 @@ public class Gladiator
         }
     }
 
-    public int Action
+    public string Action
     {
         get
         {
-            return head.price + torso.price + rightArm.price + leftArm.price + legs.price;
+            if (action == Actions.Repairing) return Color.ENERGY + "REPAIRING" + Color.RESET;
+            if (action == Actions.Resting) return Color.ENERGY + "RESTING" + Color.RESET;
+            if (action == Actions.Working) return Color.ENERGY + "WORKING" + Color.RESET;
+            if (action == Actions.Strength) return Color.ENERGY + "TRAINING STRENGTH" + Color.RESET;
+            if (action == Actions.Offence) return Color.ENERGY + "TRAINING OFFENCE" + Color.RESET;
+            if (action == Actions.Defence) return Color.ENERGY + "TRAINING DEFENCE" + Color.RESET;
+            if (action == Actions.Endurance) return Color.ENERGY + "TRAINING ENDURANCE" + Color.RESET;
+            return "";
         }
     }
 }

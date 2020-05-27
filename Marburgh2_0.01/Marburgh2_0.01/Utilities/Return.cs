@@ -144,13 +144,13 @@ public class Return
     public static void GladiatorInfo(Gladiator g, int x, int y)
     {
         Write.Line(x, y, Color.NAME + g.name + Color.RESET);
-        Write.Line(x, y+1, Color.HEALTH + "Wins" + Color.RESET + $"       { g.wins}");
-        Write.Line(x, y+2, Color.STRENGTH + "Strength" + Color.RESET + $"   {g.Strength}");
-        Write.Line(x, y+3, Color.OFFENCE + "Offence" + Color.RESET + $"    {g.Offence}");
-        Write.Line(x, y+4, Color.DEFENCE + "Defence" + Color.RESET + $"    {g.Defence}");
-        Write.Line(x, y+5, Color.ENDURANCE + "Endurance" + Color.RESET + $"  {g.Endurance}");
-        if (g.Trait1 != "NONE") Write.Line(x, y+7, Color.ABILITY + $"{g.Trait1}" + Color.RESET);
-        if (g.Trait2 != "NONE") Write.Line(x, y+8, Color.ABILITY + $"{g.Trait2}" + Color.RESET);
+        Write.Line(x, y+2, Color.HEALTH + "Wins" + Color.RESET + $"       { g.wins}");
+        Write.Line(x, y+3, Color.STRENGTH + "Strength" + Color.RESET + $"   {g.Strength}");
+        Write.Line(x, y+4, Color.OFFENCE + "Offence" + Color.RESET + $"    {g.Offence}");
+        Write.Line(x, y+5, Color.DEFENCE + "Defence" + Color.RESET + $"    {g.Defence}");
+        Write.Line(x, y+6, Color.ENDURANCE + "Endurance" + Color.RESET + $"  {g.Endurance}");
+        if (g.Trait1 != "NONE") Write.Line(x, y+8, Color.ABILITY + $"{g.Trait1}" + Color.RESET);
+        if (g.Trait2 != "NONE") Write.Line(x, y+9, Color.ABILITY + $"{g.Trait2}" + Color.RESET);
     }
 
     public static void GladiatorCurrentEquipment(Gladiator g)
@@ -224,8 +224,7 @@ public class Return
 
     public static void Roster(Owner p, int x)
     {
-        Write.Line(60 , 2, Color.NAME + "ROSTER" + Color.RESET);
-        Write.Line(x, 3, Color.ITEM + "MAIN" + Color.RESET);
+        Write.Line(x, 2, Color.ITEM + "MAIN" + Color.RESET);
         
         for (int i = 0; i < Create.player.roster.Count; i++)
         {

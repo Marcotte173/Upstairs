@@ -31,7 +31,8 @@ public class Hub
             Write.Line("[3] " + Color.ITEM + "Purchase Equipment" + Color.RESET);
             Write.Line("[4] " + Color.ENERGY + "Jobs" + Color.RESET);
             Write.Line("[5] " + Color.ENERGY + "Shady Jobs" + Color.RESET);
-            Write.Line("[6] " + Color.DURABILITY + "Graveyard" + Color.RESET);
+            if (Graveyard.graveyard.Count > 0) Write.Line("[6] " + Color.DURABILITY + "Graveyard" + Color.RESET);
+            else Write.Line("[X] " + Color.MITIGATION + "The graveyard is empty" + Color.RESET);
             Write.Line("[7] " + Color.XP + "Owner Rankings" + Color.RESET);
             if (audience) Write.Line("[8] " + Color.XP + "Audience with the emperor" + Color.RESET);
             else Write.Line("[X] " + Color.MITIGATION + "The emperor has no interest in you" + Color.RESET);
@@ -43,6 +44,8 @@ public class Hub
             if (choice == "1") Slaver.Hire();
             else if (choice == "2") Manage.Gladiators();
             else if (choice == "3") Purchase.Equipment();
+            else if (choice == "6" && Graveyard.graveyard.Count > 0) Graveyard.Visit();
+            else if (choice == "7") 
             else if (choice == "a")
             {
                 fightsToday = false;

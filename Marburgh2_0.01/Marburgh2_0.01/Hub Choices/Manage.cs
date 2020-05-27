@@ -254,12 +254,47 @@ public class Manage
     private static void Train(Gladiator g)
     {
         Console.Clear();
-        Return.GladiatorInfo(g,0, 2);
-        Write.Line("What would you like to train?");
+        Return.GladiatorInfo(g,5, 6);
+        Write.Line(0,18,"What would you like to train?");
         Write.Line(0, 23, "[1] "+Color.STRENGTH + "Strength"+ Color.RESET);
         Write.Line(0, 24, "[2] "+Color.OFFENCE + "Offence" + Color.RESET);
         Write.Line(0, 25, "[3] "+Color.DEFENCE + "Defence" + Color.RESET);
         Write.Line(0, 26, "[4] "+Color.ENDURANCE + "Endurance" + Color.RESET);
         Write.Line(0, 28, "[0] to Return");
+        string choice = Return.Option();
+        if (choice == "0") Gladiators();
+        else if (choice == "1")
+        {
+            g.action = Actions.Strength;
+            Console.Clear();
+            Return.GladiatorInfo(g, 5, 6);
+            Write.Line(0, 20, Color.NAME + g.name + Color.RESET + " is training " + Color.STRENGTH + "strength" + Color.RESET);
+            Write.KeyPress(0, 28);
+        }
+        else if (choice == "2")
+        {
+            g.action = Actions.Offence;
+            Console.Clear();
+            Return.GladiatorInfo(g, 5, 6);
+            Write.Line(0, 20, Color.NAME + g.name + Color.RESET + " is training " + Color.OFFENCE + "offence" + Color.RESET);
+            Write.KeyPress(0, 28);
+        }
+        else if (choice == "3")
+        {
+            g.action = Actions.Defence;
+            Console.Clear();
+            Return.GladiatorInfo(g, 5, 6);
+            Write.Line(0, 20, Color.NAME + g.name + Color.RESET + " is training " + Color.DEFENCE + "defence" + Color.RESET);
+            Write.KeyPress(0, 28);
+        }
+        else if (choice == "4")
+        {
+            g.action = Actions.Endurance;
+            Console.Clear();
+            Return.GladiatorInfo(g, 5, 6);
+            Write.Line(0, 20, Color.NAME + g.name + Color.RESET + " is training " + Color.ENDURANCE + "endurance" + Color.RESET);
+            Write.KeyPress(0, 28);
+        }
+        else Train(g);
     }
 }
