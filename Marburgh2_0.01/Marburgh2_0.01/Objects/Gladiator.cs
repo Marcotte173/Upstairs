@@ -4,7 +4,7 @@ using System.Data;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-public enum Traits {None, MissingArm, MissingLeg, Afraid, Fearless, }
+public enum Traits {None, Afraid, Fearless, }
 public enum Actions { None , Resting, Repairing, Working, Strength, Offence, Defence, Endurance  }
 public class Gladiator
 {    
@@ -21,6 +21,9 @@ public class Gladiator
     public Traits trait1;
     public Traits trait2;
     public Actions action;
+    public bool missingLeftArm;
+    public bool missingRightArm;
+    public bool missingLeg;
 
     public Gladiator()
     {
@@ -45,14 +48,16 @@ public class Gladiator
         trait2 = Traits.None;
     }
 
-    public bool SurrenderCheck()
+    public bool SurrenderCheck(Gladiator a, Gladiator b)
     {
         if (SeverelyInjured(head) || SeverelyInjured(torso) || Disabled(leftArm) || Disabled(rightArm) || Disabled(legs))
         {
             if (Disabled(leftArm) && Disabled(rightArm))
             {
                 Combat.surrender = true;
-                Write.Line(0, 26, $"With no means of defending themselves, {name} surrenders");
+                Console.Clear();
+                Return.CombatDisplay(a, b);
+                Write.Line(0, 24, $"With no means of defending themselves, {name} surrenders");
                 return true;
             }
             if (Owner != null)
@@ -66,7 +71,9 @@ public class Gladiator
                 if (surrenderRoll > Owner.prestige)
                 {
                     Combat.surrender = true;
-                    Write.Line(0, 26, $"Displaying heartbreaking cowardice, {name} surrenders");
+                    Console.Clear();
+                    Return.CombatDisplay(a, b);
+                    Write.Line(0, 24, $"Displaying heartbreaking cowardice, {name} surrenders");
                     return true;                    
                 }
             }
@@ -108,8 +115,7 @@ public class Gladiator
                 }
                 if (dam > 0)
                 {
-                    head.hp -= dam;
-                    head.UpdateStatus();
+                    head.TakeDamage(dam);
                     if (head.Endurance > 0) head.Endurance -= 1;
                     if (rightArm.Endurance > 0) rightArm.Endurance -= 1;
                     if (legs.Endurance > 0) legs.Endurance -= 1;
@@ -137,8 +143,7 @@ public class Gladiator
                 }
                 if (dam > 0)
                 {
-                    torso.hp -= dam;
-                    torso.UpdateStatus();
+                    torso.TakeDamage(dam);
                     if (torso.Endurance > 0) torso.Endurance -= 1;
                     if (legs.Endurance > 0) legs.Endurance -= 1;
                     flavor3 = (dam > 3) ? "THE BLADE BITES DEEP! Serious damage has been done!" : (dam > 0) ? $"There is blood everywhere, making it difficult to tell how badly {name} is wounded" : $"{name} avoids the worst of it, coming away with a small cut";
@@ -165,8 +170,7 @@ public class Gladiator
                 }
                 if (dam > 0)
                 {
-                    leftArm.hp -= dam;
-                    leftArm.UpdateStatus();
+                    leftArm.TakeDamage(dam);
                     if (leftArm.Endurance > 0) leftArm.Endurance -= 1;
                     flavor3 = (dam > 3) ? "THE BLADE BITES DEEP! Serious damage has been done!" : (dam > 0) ? $"There is blood everywhere, making it difficult to tell how badly {name} is wounded" : $"{name} avoids the worst of it, coming away with a small cut";
                 }
@@ -192,8 +196,7 @@ public class Gladiator
                 }
                 if (dam > 0)
                 {
-                    rightArm.hp -= dam;
-                    rightArm.UpdateStatus();
+                    rightArm.TakeDamage(dam);
                     if (rightArm.Endurance > 0) rightArm.Endurance -= 1;
                     flavor3 = (dam > 3) ? "THE BLADE BITES DEEP! Serious damage has been done!" : (dam > 0) ? $"There is blood everywhere, making it difficult to tell how badly {name} is wounded" : $"{name} avoids the worst of it, coming away with a small cut";
                 }
@@ -219,15 +222,14 @@ public class Gladiator
                 }
                 if (dam > 0)
                 {
-                    legs.hp -= dam;
-                    legs.UpdateStatus();
+                    legs.TakeDamage(dam);
                     if (legs.Endurance > 0) legs.Endurance -= 1;
                     flavor3 = (dam > 3) ? "THE BLADE BITES DEEP! Serious damage has been done!" : (dam > 0) ? $"There is blood everywhere, making it difficult to tell how badly {name} is wounded" : $"{name} avoids the worst of it, coming away with a small cut";
                 }
                 break;
             }
         }
-        if (Owner.player == true)
+        if (Owner.player || g.Owner.player)
         {
             Write.Line(0, 23, flavor1);
             if (flavor2 != "")
@@ -288,8 +290,6 @@ public class Gladiator
     { 
         get 
         {
-            if (trait1 == Traits.MissingArm) return "MISSING ARM";
-            if (trait1 == Traits.MissingLeg) return "MISSING LEG";
             if (trait1 == Traits.Afraid) return "AFRAID";
             if (trait1 == Traits.Fearless) return "FEARLESS";
             return "NONE";
@@ -299,8 +299,6 @@ public class Gladiator
     {
         get
         {
-            if (trait2 == Traits.MissingArm) return "MISSING ARM";
-            if (trait2 == Traits.MissingLeg) return "MISSING LEG";
             if (trait2 == Traits.Afraid) return "AFRAID";
             if (trait2 == Traits.Fearless) return "FEARLESS";
             return "NONE";

@@ -91,7 +91,7 @@ public class Manage
             Console.Clear();
             Return.PlayerInfo();
             Return.Managers();
-            BrokenGear();
+            Equipment();
             Write.Line(0, 20, "Who's " + Color.ITEM + "armor " + Color.RESET + "would you like to repair?");
             for (int i = 0; i < player.roster.Count; i++)
             {
@@ -263,7 +263,7 @@ public class Manage
         HireManager();        
     }
 
-    private static void Injuries()
+    public static void Injuries()
     {
         int x = 5;
         int n = 8;
@@ -302,7 +302,7 @@ public class Manage
         }
     }
 
-    private static void BrokenGear()
+    public static void Equipment()
     {
         int x = 5;
         int n = 8;
@@ -328,7 +328,8 @@ public class Manage
                     Write.Line(x, n,  $"Leg  {player.roster[i].legs.equipment.CheckStatus()}");
                     n++;
                 }
-                if (n == 8) Write.Line(x, n + 2, Color.HEALTH + "No Injuries" + Color.RESET);
+                Write.Line(x, 12, $"MH {player.roster[i].rightArm.equipment.name}");
+                Write.Line(x, 13, $"OH {player.roster[i].leftArm.equipment.name}");
                 x += 25;
                 n = 8;
             }

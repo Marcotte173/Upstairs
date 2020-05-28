@@ -51,6 +51,20 @@ public class Body
         else if (hp == 1 || hp == 2) status = Status.SeverelyInjured;
         else  status = Status.Disabled;
     }
+
+    public void TakeDamage(int x)
+    {
+        hp -= x;
+        UpdateStatus();
+    }
+    public void SetHealth(int x)
+    {
+        hp = x;
+        UpdateStatus();
+    }
+
+
+
     public void UpdateOffence(int update) 
     {
         offence += update;

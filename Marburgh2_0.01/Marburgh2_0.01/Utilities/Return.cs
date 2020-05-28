@@ -31,7 +31,7 @@ public class Return
     internal static void Managers()
     {
         int n = 19;
-        int x = 60;        
+        int x = 50;        
         if (Create.player.equipmentManager)
         {
             Write.Line(x, n, Color.ITEM + Manage.managerNames[0] + Color.RESET + " the" + Color.ITEM + " equipment manager" + Color.RESET);
@@ -72,8 +72,8 @@ public class Return
             Write.Line(x, n, Color.GOLD + Manage.managerNames[7] + Color.RESET + " the" + Color.GOLD + " fiscal planner" + Color.RESET);
             n++;
         }
-        if (n == 19) Write.Line(60, 17, "No Managers");
-        else Write.Line(60, 17, "Managers");
+        if (n == 19) Write.Line(60, 17, Color.SPEAK + "No Managers" + Color.RESET);
+        else Write.Line(60, 17, Color.SPEAK + "Managers" + Color.RESET);
     }
 
     public static void SortByPrice(List<Gladiator> list)
@@ -242,9 +242,12 @@ public class Return
         Write.Line(25,  x + 7, "Endurance:  " + Color.ENDURANCE + $"{gladiator.Endurance}" + Color.RESET);
 
         //Armor Status
-        Write.Line(65, x + 2, $"Head Armor:      {gladiator.head.equipment.name}{gladiator.head.equipment.CheckStatus()}");
-        Write.Line(65, x + 3, $"Torso Armor:     {gladiator.torso.equipment.name}{gladiator.torso.equipment.CheckStatus()}");
-        Write.Line(65, x + 4, $"Legs Armor:      {gladiator.legs.equipment.name}{gladiator.legs.equipment.CheckStatus()}\n\n\n\n");
+        if (gladiator.head.equipment.maxHp == 0) Write.Line(65, x + 2, $"Head Armor:      {gladiator.head.equipment.name}");
+        else Write.Line(65, x + 2, $"Head Armor:      {gladiator.head.equipment.name}  - {gladiator.head.equipment.CheckStatus()}");
+        if (gladiator.torso.equipment.maxHp == 0) Write.Line(65, x + 3, $"Torso Armor:     {gladiator.torso.equipment.name}");
+        else Write.Line(65, x + 3, $"Torso Armor:     {gladiator.torso.equipment.name}  - {gladiator.torso.equipment.CheckStatus()}");
+        if (gladiator.legs.equipment.maxHp == 0) Write.Line(65, x + 4, $"Legs Armor:      {gladiator.legs.equipment.name}\n\n\n\n");
+        else Write.Line(65, x + 4, $"Legs Armor:      {gladiator.legs.equipment.name}  - {gladiator.legs.equipment.CheckStatus()}\n\n\n\n");
     }    
 
     public static void GladiatorInfo(Gladiator g)
